@@ -1,3 +1,17 @@
 <h1>The Article</h1>
 
 <%= render 'article', article: @article %>
+<br/>
+<%= link_to "Articles Index", articles_path %>
+<br/>
+<%= link_to article_path(@article.id), method: 'delete' do %>
+  Delete this Article
+<% end %>
+
+
+
+<%#= link_to "Back to list", your_path %>
+
+<%#= link_to your_path do %>
+  <!-- Back to list -->
+<%# end %>
