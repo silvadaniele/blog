@@ -1,4 +1,9 @@
 <h1>List of Articles</h1>
 <% @articles.each do |article| %>
-  <%= render 'article', article: article %>
+  <h2><%= article.title %></h2>
+  <%= link_to article_path(article.id) do %>
+    Read the article!
+  <% end %>
+  <em><%= article.keywords %></em>
+  <p>Writen by: <%= article.author %></p>
 <% end %>
