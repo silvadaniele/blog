@@ -1,20 +1,15 @@
 # == Schema Information
 #
-# Table name: articles
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  title      :string
-#  keywords   :string
 #  author     :string
 #  body       :text
+#  article_id :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class ArticleTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class Comment < ApplicationRecord
+  belongs_to :article
 end
