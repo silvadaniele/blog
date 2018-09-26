@@ -1,15 +1,23 @@
-<%= form_with(url: articles_path, method: "post") do %>
-  <%= label_tag(:title, "Title:") %>
-  <%= text_field_tag(:title) %>
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <h2>Errors:</h2>
+    <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label(:title, "Title:") %>
+  <%= f.text_field(:title) %>
   <br/>
-  <%= label_tag(:author, "Author:") %>
-  <%= text_field_tag(:author) %>
+  <%= f.label(:author, "Author:") %>
+  <%= f.text_field(:author) %>
   <br/>
-  <%= label_tag(:keywords, "Keywords:") %>
-  <%= text_field_tag(:keywords) %>
+  <%= f.label(:keywords, "Keywords:") %>
+  <%= f.text_field(:keywords) %>
   <br/>
-  <%= label_tag(:body, "Text:") %>
-  <%= text_field_tag(:body) %>
+  <%= f.label(:body, "Text:") %>
+  <%= f.text_field(:body) %>
   <br/>
-  <%= submit_tag("Create Article") %>
+  <%= f.submit("Create Article") %>
 <% end %>
