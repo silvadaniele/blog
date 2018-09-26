@@ -8,18 +8,17 @@ class ArticlesController < ApplicationController
   end
 
   def new
-
+    @article = Article.new
   end
 
   def create
-    @article = Article.create(
-      title: params[:title],
-      keywords: params[:keywords],
-      author: params[:author],
-      body: params[:body]
-    )
+    @article = Article.new(article_params)
 
-    redirect_to article_path(@article.id)
+    if @article.save
+      redirect_to article_path(@article.id)
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -27,5 +26,11 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     redirect_to articles_path
+  end
+
+  private
+  
+  def article_params
+    params.require(:article).permit(:title, :author, :keywords, :body)
   end
 end
