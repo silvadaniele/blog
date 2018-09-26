@@ -13,10 +13,10 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(
-      title: 'Dani',
-      keywords: 'dani, manu',
-      author: 'manu',
-      body: 'some text'
+      title: params[:title],
+      keywords: params[:keywords],
+      author: params[:author],
+      body: params[:body]
     )
 
     redirect_to article_path(@article.id)

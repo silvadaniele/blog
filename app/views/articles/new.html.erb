@@ -1,3 +1,15 @@
-<%= form_tag('/articles', method: 'post') do %>
-  <%= submit_tag 'Create Article' %>
+<%= form_with(url: articles_path, method: "post") do %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag(:title) %>
+  <br/>
+  <%= label_tag(:author, "Author:") %>
+  <%= text_field_tag(:author) %>
+  <br/>
+  <%= label_tag(:keywords, "Keywords:") %>
+  <%= text_field_tag(:keywords) %>
+  <br/>
+  <%= label_tag(:body, "Text:") %>
+  <%= text_field_tag(:body) %>
+  <br/>
+  <%= submit_tag("Create Article") %>
 <% end %>
