@@ -4,6 +4,10 @@
 <br/>
 <%= link_to "Articles Index", articles_path %>
 <br/>
+<%= link_to edit_article_path(@article.id) do %>
+  Edit this Article
+<% end %>
+<br/>
 <%= link_to article_path(@article.id), method: 'delete' do %>
   Delete this Article
 <% end %>

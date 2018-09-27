@@ -1,0 +1,24 @@
+<%= form_for(article) do |f| %>
+  <% if article.errors.any? %>
+    <h2>Errors:</h2>
+    <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label(:title, "Title:") %>
+  <%= f.text_field(:title) %>
+  <br/>
+  <%= f.label(:author, "Author:") %>
+  <%= f.text_field(:author) %>
+  <br/>
+  <%= f.label(:keywords, "Keywords:") %>
+  <%= f.text_field(:keywords) %>
+  <br/>
+  <%= f.label(:body, "Text:") %>
+  <%= f.text_field(:body) %>
+  <br/>
+  <%= f.submit("Save") %>
+<% end %>
