@@ -8,6 +8,18 @@
   Edit this Article
 <% end %>
 <br/>
-<%= link_to article_path(@article.id), method: 'delete' do %>
+<%= link_to article_path(@article.id), method: 'delete', data: { confirm: 'Are you sure?' } do %>
   Delete this Article
+<% end %>
+<br/>
+<%= link_to new_article_comment_path(article_id: @article.id) do %>
+  Comment this Article
+<% end %>
+<hr/>
+<% @article.comments.each do |comment| %>
+  <div class="comment">
+    <b>Name: <%= comment.author %></b>
+    <br/>
+    Comment: <%= comment.body %>  
+  </div>
 <% end %>

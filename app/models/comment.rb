@@ -12,4 +12,9 @@
 
 class Comment < ApplicationRecord
   belongs_to :article
+
+  validates :author, presence: true
+  validates :author, length: { minimum: 3 }
+  validates :body, presence: true
+  validates :body, length: { minimum: 4 }
 end
