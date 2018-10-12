@@ -5,4 +5,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
   resources :comments, only: [:show, :edit, :update, :destroy]
+
+  get "/login" => "logins#index", as: :login
+  post "/login" => "logins#create"
+  delete "/logout" => "logins#destroy", as: :logout
+
+  root "articles#index"
 end
