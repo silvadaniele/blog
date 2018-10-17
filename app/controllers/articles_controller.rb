@@ -9,11 +9,11 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    @article = Article.new
+    @article = current_user.articles.new
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     if @article.save
       redirect_to article_path(@article.id)
@@ -38,6 +38,7 @@ class ArticlesController < ApplicationController
 
     redirect_to articles_path
   end
+
 
   private
 
