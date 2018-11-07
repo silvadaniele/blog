@@ -18,7 +18,7 @@
 <hr/>
 <% @article.comments.each do |comment| %>
   <div class="comment">
-    <b>Name: <%= comment.author %></b>
+    <b>Name: <%= comment.author.email %></b>
     <br/>
     Comment: <%= comment.body %>  
   </div>

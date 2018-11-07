@@ -5,12 +5,14 @@ class CommentsController < ApplicationController
 
   def new
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.new
+    @comment = current_user.comments.new
+    @comment.article_id = @article.id
   end
 
   def create
     @article = Article.find(params[:article_id])
-    @comment = @article.comments.new(comment_params)
+    @comment = current_user.comments.new(comment_params)
+    @comment.article_id = @article.id
 
     if @comment.save
       redirect_to article_path(@comment.article_id)
