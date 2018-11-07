@@ -20,7 +20,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, foreign_key: :author_id, dependent: :destroy
-  # TODO has_many :comments, dependent: :destroy
+  has_many :comments, foreign_key: :author_id, dependent: :destroy
 
   validates :email, presence: true
   validates :email, uniqueness: true
