@@ -9,13 +9,23 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice.present? %>
+      <div class="alert alert-success text-center" role="alert">
+        <span><%= notice %></span>
+      </div>
+    <% end %>
+    <% if alert.present? %>
+      <div class="alert alert-danger text-center" role="alert">
+        <span><%= alert %></span>
+      </div>
+    <% end %>  
     <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
     <% else %>
       <%= link_to "Sign in", new_user_session_path %>
     <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>

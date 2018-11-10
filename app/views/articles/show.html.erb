@@ -1,20 +1,21 @@
-<h1>The Article</h1>
-
+<h1><%= @article.title %></h1>
 <%= render 'article', article: @article %>
 <br/>
-<%= link_to "Articles Index", articles_path %>
-<br/>
-<%= link_to edit_article_path(@article.id) do %>
-  Edit this Article
-<% end %>
-<br/>
-<%= link_to article_path(@article.id), method: 'delete', data: { confirm: 'Are you sure?' } do %>
-  Delete this Article
-<% end %>
-<br/>
-<%= link_to new_article_comment_path(article_id: @article.id) do %>
-  Comment this Article
-<% end %>
+<div class="btn-group" role="group" aria-label="article-actions">
+  <%= link_to "Articles Index", articles_path, class: "btn btn-link" %>
+  <br/>
+  <%= link_to edit_article_path(@article.id), class: "btn btn-info" do %>
+    Edit this Article
+  <% end %>
+  <br/>
+  <%= link_to article_path(@article.id), method: 'delete', data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+    Delete this Article
+  <% end %>
+  <br/>
+  <%= link_to new_article_comment_path(article_id: @article.id), class: "btn btn-info" do %>
+    Comment this Article
+  <% end %>
+</div>
 <hr/>
 <% @article.comments.each do |comment| %>
   <div class="comment">
