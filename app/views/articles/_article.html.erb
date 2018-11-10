@@ -1,6 +1,7 @@
-<h2><%= article.title %></h2>
-<em><%= article.keywords %></em>
+<h2><%= article.title %> <span class="badge badge-secondary"> New </span></h2>
+<em> Keywords: <%= article.keywords %></em>
 <p>Writen by: <%= article.author.email %></p>
 <p><%= article.body %></p>
-<b><%= article.created_at %></b>
-<u><%= article.updated_at %></u>
+<b> Created at: <%= article.created_at.strftime("%d/%m/%y") %></b>
+<br>
+<u> Last modification: <%= article.updated_at.strftime("%d/%m/%y") %></u>
